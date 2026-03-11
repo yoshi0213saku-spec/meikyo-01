@@ -20,7 +20,7 @@
             color: var(--text-main);
         }
 
-        /* タイトル書体設定：サイズを控えめに調整 */
+        /* タイトル書体設定 */
         .title-serif {
             font-family: 'Noto Serif JP', serif;
             font-weight: 900;
@@ -64,9 +64,22 @@
 </head>
 <body class="min-h-screen">
 
-    <div class="max-w-2xl mx-auto px-4 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto px-4 py-8 md:py-12">
+        
+        <!-- 総合案内へ戻るボタン -->
+        <nav class="mb-8 fade-in">
+            <a href="https://yoshi0213saku-spec.github.io/deji-sogouannai01/" class="inline-flex items-center space-x-2 text-gray-400 hover:text-blue-600 transition-colors duration-300 group">
+                <div class="w-8 h-8 rounded-full bg-white border border-gray-100 flex items-center justify-center shadow-sm group-hover:border-blue-100 group-hover:bg-blue-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </div>
+                <span class="text-xs font-bold tracking-widest uppercase">総合案内に戻る</span>
+            </a>
+        </nav>
+
         <!-- ヘッダーセクション -->
-        <header class="text-center mb-12 fade-in">
+        <header class="text-center mb-12 fade-in" style="animation-delay: 0.05s;">
             <div class="inline-flex items-center space-x-2 bg-blue-50 px-4 py-1.5 rounded-full mb-6">
                 <span class="relative flex h-2 w-2">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -79,7 +92,6 @@
                 <p class="text-xs md:text-base title-sub uppercase">
                     AIが読み解く
                 </p>
-                <!-- フォントサイズを4xl/6xlから3xl/4xlへ縮小 -->
                 <h1 class="text-2xl md:text-4xl text-gray-900 title-serif">
                     「明鏡止水 <span class="text-blue-600">武のKAMIWAZA</span>」
                 </h1>
@@ -89,11 +101,11 @@
         <div class="space-y-8 fade-in" style="animation-delay: 0.1s;">
             
             <!-- メインアーカイブカード -->
-            <div class="glass-card rounded-3xl p-8 space-y-10 border border-gray-100">
+            <div class="glass-card rounded-3xl p-8 space-y-10 border border-gray-100 shadow-sm">
                 <!-- アーカイブ概要 -->
                 <section>
                     <h2 class="text-xs font-bold text-blue-500 uppercase tracking-[0.3em] mb-4">Archive Overview</h2>
-                    <h3 class="text-lg font-bold mb-4">アーカイブ概要</h3>
+                    <h3 class="text-lg font-bold mb-4 text-gray-800">アーカイブ概要</h3>
                     <p class="text-sm text-gray-600 leading-relaxed mb-8">
                         本資料館は、NHK番組「明鏡止水 武のKAMIWAZA」を、現代のAI技術を用いて解析した音声解説を収蔵しています。
                     </p>
@@ -102,7 +114,7 @@
                         <!-- AI音声解説の解説 -->
                         <div class="bg-blue-50/40 p-5 rounded-2xl border border-blue-50">
                             <h4 class="text-sm font-black text-gray-800 mb-3 flex items-center">
-                                <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                                <span class="w-2 h-2 bg-blue-600 rounded-full mr-2 shadow-sm"></span>
                                 AI音声解説とは
                             </h4>
                             <ul class="space-y-2 text-[13px] text-gray-600">
@@ -115,7 +127,7 @@
                         <!-- AI動画解説の解説 -->
                         <div class="bg-emerald-50/40 p-5 rounded-2xl border border-emerald-50">
                             <h4 class="text-sm font-black text-gray-800 mb-3 flex items-center">
-                                <span class="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>
+                                <span class="w-2 h-2 bg-emerald-500 rounded-full mr-2 shadow-sm"></span>
                                 AI動画解説とは
                             </h4>
                             <ul class="space-y-2 text-[13px] text-gray-600">
@@ -145,7 +157,7 @@
             <!-- オーディオプレイヤーカード -->
             <div class="glass-card rounded-3xl p-8 border border-gray-100">
                 <div class="flex items-center justify-between mb-6">
-                    <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Analysis Audio</span>
+                    <span class="text-xs font-bold text-blue-600 uppercase tracking-widest text-blue-600">Analysis Audio</span>
                     <span id="playing-indicator" class="text-[10px] text-gray-400 font-medium">待機中...</span>
                 </div>
                 <audio id="main-audio" controls class="w-full h-10 mb-8 focus:outline-none">
@@ -224,9 +236,9 @@
 
             <!-- キュレーター紹介 -->
             <div class="glass-card rounded-3xl p-10 text-center mt-12 border border-gray-100">
-                <p class="text-[10px] text-gray-400 uppercase tracking-[0.4em] mb-6 font-bold">Authorized Curator</p>
-                <div class="relative w-20 h-20 mx-auto mb-6 text-blue-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <p class="text-[10px] text-gray-400 uppercase tracking-[0.4em] mb-6 font-bold text-gray-400">Authorized Curator</p>
+                <div class="relative w-20 h-20 mx-auto mb-6 text-blue-600 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                 </div>
