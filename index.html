@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI太極拳デジタル資料館 - Biomechanics Lab</title>
+    <title>AIで解き明かす デジタル資料館 - Biomechanics Lab</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #fcfbf7;
             --accent-blue: #2563eb;
+            --accent-emerald: #10b981;
             --text-main: #1a202c;
         }
 
@@ -64,30 +65,81 @@
             </div>
             <h1 class="text-3xl md:text-5xl font-black mb-4 serif leading-tight">
                 AIで解き明かす<br>
-                <span class="text-blue-600">太極拳デジタル資料館</span>
+                <span class="text-blue-600">デジタル資料館</span>
             </h1>
         </header>
 
         <div class="space-y-6 fade-in" style="animation-delay: 0.1s;">
             
-            <!-- アーカイブ概要・メイン解説パネル -->
-            <div class="glass-card rounded-3xl p-8 space-y-6">
+            <!-- アーカイブ概要・今回のテーマパネル -->
+            <div class="glass-card rounded-3xl p-8 space-y-8">
+                <!-- アーカイブ概要 -->
                 <section>
                     <h2 class="text-xs font-bold text-blue-500 uppercase tracking-[0.2em] mb-3">Archive Overview</h2>
-                    <h3 class="text-lg font-bold mb-2">アーカイブ概要</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        本資料館は、NHK番組「明鏡止水 武のKAMIWAZA」で紹介された大相撲の伝統技術を、現代のAI技術を用いて解析した音声資料を収蔵しています。
+                    <h3 class="text-lg font-bold mb-3">アーカイブ概要</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-8">
+                        本資料館は、NHK番組「明鏡止水 武のKAMIWAZA」を、現代のAI技術を用いて解析した音声解説を収蔵しています。
                     </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- AI音声解説 -->
+                        <div>
+                            <h4 class="text-sm font-bold text-gray-800 mb-4 flex items-center">
+                                <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                                AI音声解説とは
+                            </h4>
+                            <ul class="space-y-4 text-[13px] text-gray-600">
+                                <li class="flex items-start">
+                                    <span class="font-bold text-blue-600 mr-2">1.</span>
+                                    <span><strong>2人の掛け合い:</strong> 男女のAIが、対話形式で話を進めます。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-bold text-blue-600 mr-2">2.</span>
+                                    <span>初心者にもわかりやすいように、重要なポイントを抽出して解説してくれます。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-bold text-blue-600 mr-2">3.</span>
+                                    <span>場所を選ばず、耳から知識を。忙しい日々の隙間が学びの場に変わります。</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- AI動画解説 -->
+                        <div>
+                            <h4 class="text-sm font-bold text-gray-800 mb-4 flex items-center">
+                                <span class="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>
+                                AI動画解説とは
+                            </h4>
+                            <ul class="space-y-4 text-[13px] text-gray-600">
+                                <li class="flex items-start">
+                                    <span class="font-bold text-emerald-500 mr-2">1.</span>
+                                    <span>短いフレーズを畳み掛け、視聴者の視線を釘付けにするスタイルです。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-bold text-emerald-500 mr-2">2.</span>
+                                    <span>手順やポイントを整理し、納得感を高めるスタイルです。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-bold text-emerald-500 mr-2">3.</span>
+                                    <span>空気感や感情を伝え、没入感を誘うスタイルです。</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </section>
 
                 <hr class="border-gray-100">
 
+                <!-- 今回のテーマ -->
                 <section id="focus-area">
-                    <h2 class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-3">Current Focus</h2>
-                    <h3 class="text-xl font-bold mb-3">明鏡止水：武のKAMIWAZA</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed font-medium">
-                        NHK「明鏡止水」で実演された達人たちの身体操作を、太極拳の「掤（ポン）」と「履（リー）」の観点から力学解析。巨漢を無力化する物理的プロセスを学習します。
-                    </p>
+                    <h2 class="text-xs font-bold text-blue-500 uppercase tracking-[0.2em] mb-3">Theme of the Session</h2>
+                    <h3 class="text-xl font-bold mb-4">明鏡止水：武のKAMIWAZA<br><span class="text-gray-500 text-lg">〜大相撲 技の秘密〜</span></h3>
+                    <div class="bg-white/50 border border-blue-100 rounded-2xl p-5 shadow-sm">
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            提供された全文は、相撲、レスリング、古武術に共通する<strong class="text-blue-700">「重心の操作」「体幹と骨の活用」「崩しの理合」</strong>という身体操作の極意を解説したものです。<br><br>
+                            相撲の押し出しやレスリングで見られる「相手の重心を下から上に起こす」技術、古武術の「死角や幾何学的な弱点を突く崩し」など、力任せではない効率的な力の伝達が競技の垣根を超えた強さの源泉であることを明らかにしています。また、室伏広治氏のトレーニング法などを通じ、インナーマッスルや繊細な感覚を研ぎ澄ますことの重要性についても多角的に紹介されています。
+                        </p>
+                    </div>
                 </section>
             </div>
 
@@ -102,7 +154,7 @@
                 </audio>
 
                 <div class="space-y-3" id="playlist">
-                    <!-- トラック1 -->
+                    <!-- トラック1: 巨漢を無力化する重心の物理 -->
                     <div onclick="playTrack('./meikyo-kyokan01.mp3', '巨漢を無力化する重心の物理', '重心を自身の支持基底面から逸らし、相手のベクトルを利用して無力化する力学を解説。', this)" 
                          class="group cursor-pointer p-4 rounded-2xl border border-gray-100 hover:border-blue-200 hover:bg-white transition-all duration-300">
                         <div class="flex items-center justify-between">
@@ -112,15 +164,15 @@
                                 </div>
                                 <div>
                                     <h4 class="text-sm font-bold">巨漢を無力化する重心の物理</h4>
-                                    <p class="text-[10px] text-gray-400 uppercase mt-1">Difficulty: Intermediate / 3:45</p>
+                                    <p class="text-[10px] text-gray-400 uppercase mt-1">File: meikyo-kyokan01 / 3:45</p>
                                 </div>
                             </div>
                             <span class="text-xs text-blue-400 font-mono">01</span>
                         </div>
                     </div>
 
-                    <!-- トラック2 -->
-                    <div onclick="playTrack('./meikyo-jyusin01.mp3', '重心と幾何学で巨体を制する', '支持基底面と力学的死角の特定. 骨格の連動がいかに力を増幅させるかのAI解析。', this)" 
+                    <!-- トラック2: 重心と幾何学で巨体を制する -->
+                    <div onclick="playTrack('./meikyo-jyusin01.mp3', '重心と幾何学で巨体を制する', '支持基底面と力学的死角の特定。骨格の連動がいかに力を増幅させるかのAI解析。', this)" 
                          class="group cursor-pointer p-4 rounded-2xl border border-gray-100 hover:border-blue-200 hover:bg-white transition-all duration-300">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center space-x-4">
@@ -129,12 +181,40 @@
                                 </div>
                                 <div>
                                     <h4 class="text-sm font-bold">重心と幾何学で巨体を制する</h4>
-                                    <p class="text-[10px] text-gray-400 uppercase mt-1">Difficulty: Advanced / 4:12</p>
+                                    <p class="text-[10px] text-gray-400 uppercase mt-1">File: meikyo-jyusin01 / 4:12</p>
                                 </div>
                             </div>
                             <span class="text-xs text-blue-400 font-mono">02</span>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- AI動画解説（テキストリンク形式） -->
+            <div class="glass-card rounded-3xl p-8 border-l-4 border-emerald-500">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 6a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" />
+                            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8l4 2-4 2V8z" />
+                        </svg>
+                        AI Video Commentary
+                    </span>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold text-gray-800 leading-tight">
+                        明鏡止水「剛」を制する普遍的な戦闘法則
+                    </h4>
+                    <p class="text-sm text-gray-500">
+                        動画で身体操作の視覚的な解説を確認できます。
+                    </p>
+                    <a href="https://youtu.be/TMdEi3EX4Wg" target="_blank" 
+                       class="inline-flex items-center px-6 py-3 bg-white border-2 border-emerald-500 text-emerald-600 font-bold rounded-xl hover:bg-emerald-500 hover:text-white transition-all duration-300">
+                        <span class="mr-2">YouTubeで動画を視聴する</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
                 </div>
             </div>
 
@@ -195,16 +275,15 @@
             audio.src = url;
             indicator.innerText = "読込中...";
             
-            // play()はPromiseを返すため、失敗時のcatch処理を追加してエラーを防止
+            // play()の例外処理
             audio.play().then(() => {
                 indicator.innerText = "再生中: " + title;
             }).catch(error => {
-                // ファイルが存在しない環境（プレビュー等）でのエラー回避
-                console.warn("Audio playback failed (expected if files are missing locally):", error);
+                console.warn("Playback blocked or file not found:", error);
                 indicator.innerHTML = '<span class="text-red-500 font-bold">再生失敗: ファイル未検出</span>';
             });
 
-            // AI Insight表示（音声が鳴らなくても解説は表示する）
+            // AI Insight表示
             insightPanel.classList.remove('hidden');
             insightText.innerText = insight;
         }
