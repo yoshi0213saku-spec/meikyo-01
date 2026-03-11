@@ -1,157 +1,261 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>総合案内 デジタル資料館</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
 
-<title>総合案内 デジタル資料館</title>
+        :root {
+            --bg-beige: #fdfaf0;
+            --accent-blue: #2563eb;
+        }
 
-<script src="https://cdn.tailwindcss.com"></script>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            color: #1e293b;
+        }
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+        .beige-card {
+            background: var(--bg-beige);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
 
-body{
-font-family:'Noto Sans JP',sans-serif;
-background:#ffffff;
-margin:0;
-}
+        .glass-header {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
 
-.beige-card{
-background:#fdfaf0;
-border:1px solid rgba(0,0,0,0.05);
-}
+        .menu-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-.menu-item{
-transition:all .2s;
-}
+        .menu-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            background: white;
+        }
 
-.menu-item:hover{
-background:#f7fafc;
-}
-</style>
+        .view-section {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
 
+        .view-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
 </head>
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-8">
 
-<body class="min-h-screen flex flex-col items-center justify-center py-12">
+    <div class="w-full max-w-md">
+        <!-- メインカード -->
+        <div class="beige-card w-full rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col min-h-[700px] relative">
+            
+            <!-- ヘッダー (固定) -->
+            <div class="px-6 py-6 border-b border-gray-100 flex flex-col items-center glass-header z-10">
+                <span class="text-sm font-black text-blue-600 uppercase tracking-[0.2em] text-center mb-1">
+                    AI Digital Archive
+                </span>
+                <div class="flex space-x-1.5">
+                    <div class="w-1.5 h-1.5 bg-gray-200 rounded-full"></div>
+                    <div class="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+                    <div class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
+                </div>
+            </div>
 
-<div class="w-full max-w-md px-4">
+            <!-- コンテンツエリア -->
+            <div class="flex-grow overflow-y-auto scroll-hide pb-24">
+                
+                <!-- HOME 画面 -->
+                <div id="view-home" class="view-section active">
+                    <div class="pt-10 pb-6 px-8 text-center">
+                        <p class="text-gray-500 text-xs font-bold tracking-widest mb-1">GENERAL INFORMATION</p>
+                        <h1 class="text-gray-900 text-3xl font-black tracking-tighter leading-tight">
+                            総合案内<br>デジタル資料館
+                        </h1>
+                    </div>
 
-<div class="beige-card w-full rounded-[2.5rem] overflow-hidden shadow-xl flex flex-col">
+                    <div class="p-6 space-y-4">
+                        <!-- 太極拳 (外部リンク) -->
+                        <a href="https://yoshi0213saku-spec.github.io/meikyo-01/" target="_blank"
+                           class="menu-item w-full flex items-center p-5 rounded-3xl border border-gray-100 bg-white/50">
+                            <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mr-4 text-blue-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-sm font-bold text-gray-800">太極拳・武術</p>
+                                <p class="text-[10px] text-gray-500">AIで学ぶ武術デジタル資料館</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-auto text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </a>
 
-<!-- ヘッダー -->
+                        <!-- 地域・歴史 -->
+                        <button onclick="switchView('history')"
+                                class="menu-item w-full flex items-center p-5 rounded-3xl border border-gray-100 bg-white/50">
+                            <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center mr-4 text-orange-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-sm font-bold text-gray-800">地域・歴史</p>
+                                <p class="text-[10px] text-gray-500">郷土の歩みと文化の記録</p>
+                            </div>
+                        </button>
 
-<div class="px-6 py-6 border-b border-gray-100 flex flex-col items-center bg-white/40">
+                        <!-- 自然・園芸 -->
+                        <button onclick="switchView('garden')"
+                                class="menu-item w-full flex items-center p-5 rounded-3xl border border-gray-100 bg-white/50">
+                            <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mr-4 text-green-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                </svg>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-sm font-bold text-gray-800">自然・ガーデニング</p>
+                                <p class="text-[10px] text-gray-500">四季の彩りと植物の知恵</p>
+                            </div>
+                        </button>
 
-<span class="text-lg font-black text-blue-600 uppercase tracking-[0.1em] text-center mb-2">
-AIで学ぶ太極拳デジタル資料館
-</span>
+                        <!-- 音楽 -->
+                        <button onclick="switchView('music')"
+                                class="menu-item w-full flex items-center p-5 rounded-3xl border border-gray-100 bg-white/50">
+                            <div class="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mr-4 text-purple-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                                </svg>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-sm font-bold text-gray-800">音楽</p>
+                                <p class="text-[10px] text-gray-500">心を癒す音色とアーカイブ</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
 
-<div class="flex space-x-1">
-<div class="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
-<div class="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
-<div class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
-</div>
+                <!-- 地域・歴史 画面 -->
+                <div id="view-history" class="view-section p-8">
+                    <button onclick="switchView('home')" class="text-blue-600 text-xs font-bold flex items-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg> 戻る
+                    </button>
+                    <h2 class="text-2xl font-black text-gray-900 mb-4">地域・歴史</h2>
+                    <div class="space-y-6">
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100">
+                            <h3 class="font-bold text-gray-800 mb-2 underline decoration-orange-300">地域の起源</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                この地域に伝わる古文書や石碑から読み解く、私たちのルーツ。数百年続く伝統行事の由来について解説します。
+                            </p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100">
+                            <h3 class="font-bold text-gray-800 mb-2 underline decoration-orange-300">歴史的建造物</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                今も残る貴重な建築物の写真アーカイブ。当時の職人技術を現代の視点で再発見します。
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-</div>
+                <!-- 自然・園芸 画面 -->
+                <div id="view-garden" class="view-section p-8">
+                    <button onclick="switchView('home')" class="text-blue-600 text-xs font-bold flex items-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg> 戻る
+                    </button>
+                    <h2 class="text-2xl font-black text-gray-900 mb-4">自然・ガーデニング</h2>
+                    <div class="space-y-6">
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100">
+                            <h3 class="font-bold text-gray-800 mb-2 underline decoration-green-300">季節の植物図鑑</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                四季折々に咲く花々と、その育て方のコツ。庭造りの楽しみ方を提案します。
+                            </p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100">
+                            <h3 class="font-bold text-gray-800 mb-2 underline decoration-green-300">里山の生態系</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                身近な自然に息づく小さな生き物たち。環境保護の大切さを学ぶ資料です。
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-<!-- タイトル -->
+                <!-- 音楽 画面 -->
+                <div id="view-music" class="view-section p-8">
+                    <button onclick="switchView('home')" class="text-blue-600 text-xs font-bold flex items-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg> 戻る
+                    </button>
+                    <h2 class="text-2xl font-black text-gray-900 mb-4">音楽</h2>
+                    <div class="space-y-6 text-center py-10">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-600 italic">コンテンツ準備中...</p>
+                        <p class="text-[10px] text-gray-400">心に響く旋律のアーカイブを構築中です。</p>
+                    </div>
+                </div>
 
-<div class="pt-6 pb-4 px-6 text-center bg-white/20">
+            </div>
 
-<p class="text-gray-900 text-xl font-bold tracking-tight">
-総合案内
-</p>
+            <!-- フッター (固定) -->
+            <div class="absolute bottom-0 left-0 w-full bg-white/80 backdrop-blur-sm p-6 border-t border-gray-100 flex flex-col items-center">
+                <p class="text-[10px] text-gray-400 uppercase tracking-tighter mb-1">Administrator</p>
+                <p class="text-sm font-black text-gray-800">中島 義健</p>
+                <p class="text-[10px] text-gray-500 pt-0.5">日本武術太極拳連盟 会員</p>
+                <a href="mailto:yoshi0213.saku@gmail.com" class="text-[10px] text-blue-600 font-bold hover:underline mt-1">
+                    yoshi0213.saku@gmail.com
+                </a>
+                <p class="text-[8px] text-gray-300 mt-3 uppercase tracking-[0.3em]">Digital Archive Project</p>
+            </div>
 
-<h1 class="text-gray-900 text-xl font-bold tracking-tight">
-デジタル資料館
-</h1>
+        </div>
+    </div>
 
-<p class="text-blue-600 text-xs font-bold mt-1 uppercase tracking-widest">
-Digital Archive Guide
-</p>
+    <script>
+        /**
+         * 画面遷移制御
+         * @param {string} viewId - 表示するセクションのID
+         */
+        function switchView(viewId) {
+            // 全てのセクションを非表示にする
+            document.querySelectorAll('.view-section').forEach(section => {
+                section.classList.remove('active');
+            });
 
-</div>
-
-<!-- メニュー -->
-
-<div class="p-6 space-y-4">
-
-<a href="https://yoshi0213saku-spec.github.io/meikyo-01/" target="_blank"
-class="menu-item w-full block p-4 rounded-2xl border border-gray-100">
-
-<p class="text-sm font-semibold text-gray-700">
-【太極拳・武術】
-</p>
-
-<p class="text-xs text-gray-500 mt-1">
-太極拳・武術デジタル資料館
-</p>
-
-</a>
-
-
-<a href="history.html"
-class="menu-item w-full block p-4 rounded-2xl border border-gray-100">
-
-<p class="text-sm font-semibold text-gray-700">
-【地域・歴史】
-</p>
-
-</a>
-
-
-<a href="garden.html"
-class="menu-item w-full block p-4 rounded-2xl border border-gray-100">
-
-<p class="text-sm font-semibold text-gray-700">
-【自然・ガーデニング】
-</p>
-
-</a>
-
-
-<a href="music.html"
-class="menu-item w-full block p-4 rounded-2xl border border-gray-100">
-
-<p class="text-sm font-semibold text-gray-700">
-【音楽】
-</p>
-
-</a>
-
-</div>
-
-<!-- フッター -->
-
-<div class="bg-white/60 p-6 border-t border-gray-100 text-center">
-
-<p class="text-[10px] text-gray-500">
-ホームページ運営責任者
-</p>
-
-<p class="text-sm font-bold text-gray-800">
-中島 義健
-</p>
-
-<p class="text-[11px] text-gray-600 pt-1">
-日本武術太極拳連盟 会員
-</p>
-
-<a href="mailto:yoshi0213.saku@gmail.com"
-class="inline-block text-[11px] text-blue-600 hover:underline mt-1">
-yoshi0213.saku@gmail.com
-</a>
-
-<p class="text-[8px] text-gray-300 mt-4 uppercase tracking-widest">
-Digital Archive
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+            // 指定されたセクションを表示
+            const target = document.getElementById('view-' + viewId);
+            if (target) {
+                target.classList.add('active');
+                
+                // コンテンツエリアのスクロールをトップに戻す
+                const contentArea = target.closest('.overflow-y-auto');
+                if (contentArea) contentArea.scrollTop = 0;
+            }
+        }
+    </script>
 </body>
 </html>
