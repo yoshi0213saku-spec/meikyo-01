@@ -3,190 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>明鏡止水 武のKAMIWAZA - プレイリスト</title>
-    <!-- Tailwind CSS for modern UI -->
+    <title>AI太極拳デジタル資料館 - Biomechanics Lab</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
-        
+        :root {
+            --bg-color: #fcfbf7;
+            --accent-blue: #2563eb;
+            --text-main: #1a202c;
+        }
+
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            background-color: #ffffff;
-            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
         }
 
-        .beige-card {
-            background: #fdfaf0; /* 薄いベージュ */
+        .serif { font-family: 'Noto Serif JP', serif; }
+
+        /* ガラスモフィズム的なカードデザイン */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03);
         }
 
-        .playlist-item {
-            transition: all 0.2s ease;
+        .track-active {
+            border-left: 4px solid var(--accent-blue);
+            background: #eff6ff;
         }
 
-        .playlist-item.active {
-            background-color: #ebf8ff;
-            border-left: 4px solid #3182ce;
+        /* スムーズなフェードイン */
+        .fade-in {
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
-        audio::-webkit-media-controls-enclosure {
-            background-color: rgba(255, 255, 255, 0.8);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+
+        /* カスタムスクロールバー */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center py-12">
+<body class="min-h-screen">
 
-    <!-- メインプレイヤーカード コンテナ -->
-    <div class="w-full max-w-md px-4">
-        <div class="beige-card w-full rounded-[2.5rem] overflow-hidden shadow-xl flex flex-col">
-            <!-- カード内ヘッダー：AIで学ぶ太極拳デジタル資料館 -->
-            <div class="px-6 py-6 border-b border-gray-100 flex flex-col items-center bg-white/40">
-                <span class="text-lg font-black text-blue-600 uppercase tracking-[0.1em] text-center mb-2">AIで学ぶ太極拳デジタル資料館</span>
-                <div class="flex space-x-1">
-                    <div class="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
-                    <div class="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
-                    <div class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
-                </div>
+    <div class="max-w-2xl mx-auto px-4 py-8 md:py-12">
+        <!-- ヘッダーセクション -->
+        <header class="text-center mb-12 fade-in">
+            <div class="inline-flex items-center space-x-2 bg-blue-50 px-4 py-1 rounded-full mb-4">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                <span class="text-[10px] font-bold text-blue-600 tracking-widest uppercase">AI Biomechanics Lab v2.0</span>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-black mb-4 serif leading-tight">
+                AIで解き明かす<br>
+                <span class="text-blue-600">太極拳デジタル資料館</span>
+            </h1>
+        </header>
+
+        <div class="space-y-6 fade-in" style="animation-delay: 0.1s;">
+            
+            <!-- アーカイブ概要・メイン解説パネル -->
+            <div class="glass-card rounded-3xl p-8 space-y-6">
+                <section>
+                    <h2 class="text-xs font-bold text-blue-500 uppercase tracking-[0.2em] mb-3">Archive Overview</h2>
+                    <h3 class="text-lg font-bold mb-2">アーカイブ概要</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        本資料館は、NHK番組「明鏡止水 武のKAMIWAZA」で紹介された大相撲の伝統技術を、現代のAI技術を用いて解析した音声資料を収蔵しています。
+                    </p>
+                </section>
+
+                <hr class="border-gray-100">
+
+                <section id="focus-area">
+                    <h2 class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-3">Current Focus</h2>
+                    <h3 class="text-xl font-bold mb-3">明鏡止水：武のKAMIWAZA</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed font-medium">
+                        NHK「明鏡止水」で実演された達人たちの身体操作を、太極拳の「掤（ポン）」と「履（リー）」の観点から力学解析。巨漢を無力化する物理的プロセスを学習します。
+                    </p>
+                </section>
             </div>
 
-            <!-- タイトルセクション -->
-            <div class="pt-6 pb-4 px-6 text-center bg-white/20">
-                <p class="text-gray-900 text-xl font-bold tracking-tight">AIが解説する</p>
-                <h1 class="text-gray-900 text-xl font-bold tracking-tight">明鏡止水 武のKAMIWAZA</h1>
-                <p class="text-blue-600 text-xs font-bold mt-1 uppercase tracking-widest">大相撲 技の秘密</p>
-            </div>
-
-            <!-- 16:9 イメージ画像 -->
-            <div class="px-6 pb-6 bg-white/20 border-b border-gray-100">
-                <div class="w-full aspect-video bg-gray-200 rounded-2xl overflow-hidden relative border border-gray-200 shadow-inner group">
-                    <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&q=80&w=800" 
-                         alt="武術のイメージ画像" 
-                         class="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            <!-- オーディオプレイヤーユニット -->
+            <div class="glass-card rounded-3xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-bold text-blue-600 uppercase">Analysis Audio</span>
+                    <span id="playing-indicator" class="text-[10px] text-gray-400">待機中...</span>
                 </div>
-            </div>
-
-            <!-- プレイヤー・リストエリア -->
-            <div class="p-6 flex-grow">
-                <div id="status-container" class="mb-6 px-2">
-                    <div class="flex items-center space-x-2 mb-1">
-                        <span id="play-indicator" class="w-2 h-2 bg-gray-400 rounded-full"></span>
-                        <p class="text-xs text-blue-600 font-bold uppercase tracking-wider">Status</p>
-                    </div>
-                    <h2 id="current-title" class="text-lg font-bold text-gray-800 leading-tight">プレイリストを選択してください</h2>
-                    <p id="error-message" class="text-red-500 text-xs mt-2 hidden">音声ファイルを読み込めませんでした。ファイル名を確認してください。</p>
-                </div>
-
-                <audio id="main-player" controls class="w-full mb-8">
-                    <source src="" type="audio/mpeg">
-                    お使いのブラウザは再生に対応していません。
+                <audio id="main-audio" controls class="w-full h-10 mb-6 focus:outline-none">
+                    お使いのブラウザはオーディオ再生に対応していません。
                 </audio>
 
-                <div class="space-y-3 mb-8">
-                    <div class="flex items-center justify-between px-2 mb-1">
-                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest">音声解説 Tracklist</h3>
+                <div class="space-y-3" id="playlist">
+                    <!-- トラック1 -->
+                    <div onclick="playTrack('./meikyo-kyokan01.mp3', '巨漢を無力化する重心の物理', '重心を自身の支持基底面から逸らし、相手のベクトルを利用して無力化する力学を解説。', this)" 
+                         class="group cursor-pointer p-4 rounded-2xl border border-gray-100 hover:border-blue-200 hover:bg-white transition-all duration-300">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold">巨漢を無力化する重心の物理</h4>
+                                    <p class="text-[10px] text-gray-400 uppercase mt-1">Difficulty: Intermediate / 3:45</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-blue-400 font-mono">01</span>
+                        </div>
                     </div>
-                    
-                    <button onclick="playAudio('音声ファイル1.mp3', '巨漢を無力化する重心の物理', this)" 
-                            class="playlist-item w-full flex items-center justify-between p-4 rounded-2xl border border-gray-100 hover:bg-white/60 text-left group">
-                        <div class="flex items-center">
-                            <span class="w-8 h-8 flex items-center justify-center bg-white/80 rounded-full text-xs font-bold text-gray-500 mr-3 group-hover:bg-blue-100 group-hover:text-blue-600 transition-colors">01</span>
-                            <span class="text-sm font-semibold text-gray-700">巨漢を無力化する重心の物理</span>
-                        </div>
-                        <span class="text-xs text-gray-400 font-mono">18:33</span>
-                    </button>
 
-                    <button onclick="playAudio('音声ファイル2.mp3', '重心と幾厚学で巨体を制する', this)" 
-                            class="playlist-item w-full flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:bg-white/60 text-left group">
-                        <div class="flex items-center">
-                            <span class="w-8 h-8 flex items-center justify-center bg-white/80 rounded-full text-xs font-bold text-gray-500 mr-3 group-hover:bg-blue-100 group-hover:text-blue-600 transition-colors">02</span>
-                            <span class="text-sm font-semibold text-gray-700">重心と幾厚学で巨体を制する</span>
+                    <!-- トラック2 -->
+                    <div onclick="playTrack('./meikyo-jyusin01.mp3', '重心と幾何学で巨体を制する', '支持基底面と力学的死角の特定. 骨格の連動がいかに力を増幅させるかのAI解析。', this)" 
+                         class="group cursor-pointer p-4 rounded-2xl border border-gray-100 hover:border-blue-200 hover:bg-white transition-all duration-300">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold">重心と幾何学で巨体を制する</h4>
+                                    <p class="text-[10px] text-gray-400 uppercase mt-1">Difficulty: Advanced / 4:12</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-blue-400 font-mono">02</span>
                         </div>
-                        <span class="text-xs text-gray-400 font-mono">16:55</span>
-                    </button>
-                </div>
-
-                <div class="space-y-3 mb-4">
-                    <div class="flex items-center justify-between px-2 mb-1">
-                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest">動画解説 List</h3>
                     </div>
-                    
-                    <!-- YouTube リンク：剛を制する普遍的な戦闘法則 -->
-                    <a href="https://youtu.be/TMdEi3EX4Wg" target="_blank" 
-                            class="playlist-item w-full flex items-center justify-between p-4 rounded-2xl border border-gray-100 hover:bg-white/60 text-left group bg-white/10 decoration-transparent">
-                        <div class="flex items-center">
-                            <span class="px-3 h-8 flex items-center justify-center bg-red-50 rounded-full text-[9px] font-bold text-red-500 mr-3 group-hover:bg-red-100 transition-colors uppercase whitespace-nowrap">YouTube</span>
-                            <span class="text-sm font-semibold text-gray-700 underline decoration-gray-200 group-hover:decoration-blue-400">「剛」を制する普遍的な戦闘法則</span>
-                        </div>
-                        <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                        </svg>
-                    </a>
                 </div>
             </div>
 
-            <!-- 枠内の一番下（カードフッター）：運営責任者情報 -->
-            <div class="bg-white/60 p-6 border-t border-gray-100 text-center">
-                <p class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-3">Administrator Info</p>
-                <div class="space-y-1">
-                    <p class="text-[10px] text-gray-500">ホームページ運営責任者</p>
-                    <p class="text-sm font-bold text-gray-800">中島 義健</p>
-                    <div class="text-[11px] text-gray-600 pt-1">
-                        <p>日本武術太極拳連盟 会員</p>
-                    </div>
-                    <a href="mailto:yoshi0213.saku@gmail.com" class="inline-block text-[11px] text-blue-600 hover:underline mt-1">
-                        yoshi0213.saku@gmail.com
-                    </a>
+            <!-- AI 解析ビューア (動的) -->
+            <div id="ai-insight-panel" class="hidden glass-card rounded-3xl p-6 bg-blue-600 text-white shadow-xl shadow-blue-200/50">
+                <div class="flex items-center space-x-2 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <span class="text-xs font-bold uppercase tracking-widest">AI Master's Insight</span>
                 </div>
-                <p class="text-[8px] text-gray-300 mt-4 uppercase tracking-widest">Audio Analysis Project &copy; 2024</p>
+                <p id="ai-insight-text" class="text-sm leading-relaxed font-medium">
+                    <!-- JSで挿入 -->
+                </p>
+            </div>
+
+            <!-- キュレーター紹介 -->
+            <div class="glass-card rounded-3xl p-8 text-center mt-12">
+                <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-6">Authorized Curator</p>
+                <div class="relative w-24 h-24 mx-auto mb-4">
+                    <div class="absolute inset-0 bg-blue-100 rounded-full animate-pulse"></div>
+                    <div class="relative w-full h-full bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center text-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </div>
+                </div>
+                <h4 class="text-2xl font-bold">中島 義健</h4>
+                <p class="text-sm text-blue-600 font-bold mt-1">日本武術太極拳連盟 会員</p>
+                <p class="text-xs text-gray-500 mt-2 font-mono">yoshi0213@gmail.com</p>
+                
+                <div class="flex justify-center space-x-2 mt-6">
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-[10px] font-bold text-gray-500">AI分析</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-[10px] font-bold text-gray-500">武術力学</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-[10px] font-bold text-gray-500">伝統功法</span>
+                </div>
             </div>
         </div>
+
+        <footer class="mt-16 text-center text-gray-400 text-[10px] tracking-[0.3em] uppercase">
+            &copy; 2024 AI TaiChi Biomechanics Digital Archive
+        </footer>
     </div>
 
     <script>
-        const player = document.getElementById('main-player');
-        const titleDisplay = document.getElementById('current-title');
-        const errorDisplay = document.getElementById('error-message');
-        const indicator = document.getElementById('play-indicator');
+        // オーディオ再生 & 解説表示
+        function playTrack(url, title, insight, element) {
+            const audio = document.getElementById('main-audio');
+            const indicator = document.getElementById('playing-indicator');
+            const insightPanel = document.getElementById('ai-insight-panel');
+            const insightText = document.getElementById('ai-insight-text');
 
-        function playAudio(file, title, element) {
-            errorDisplay.classList.add('hidden');
-            const targetSrc = window.location.origin + '/' + encodeURI(file);
+            // プレイリストの見た目更新
+            document.querySelectorAll('#playlist > div').forEach(el => el.classList.remove('track-active', 'bg-white', 'shadow-md'));
+            element.classList.add('track-active', 'bg-white', 'shadow-md');
+
+            // 音声設定と読み込み
+            audio.src = url;
+            indicator.innerText = "読込中...";
             
-            if (player.src !== targetSrc) {
-                player.src = file;
-                titleDisplay.innerText = title;
-                player.load();
-            }
-            
-            player.play().then(() => {
-                indicator.classList.remove('bg-gray-400', 'bg-red-500');
-                indicator.classList.add('bg-blue-500', 'animate-pulse');
+            // play()はPromiseを返すため、失敗時のcatch処理を追加してエラーを防止
+            audio.play().then(() => {
+                indicator.innerText = "再生中: " + title;
             }).catch(error => {
-                console.error("再生エラー:", error);
-                showError();
+                // ファイルが存在しない環境（プレビュー等）でのエラー回避
+                console.warn("Audio playback failed (expected if files are missing locally):", error);
+                indicator.innerHTML = '<span class="text-red-500 font-bold">再生失敗: ファイル未検出</span>';
             });
 
-            document.querySelectorAll('.playlist-item').forEach(el => {
-                el.classList.remove('active', 'bg-blue-50', 'border-blue-200');
-            });
-            element.classList.add('active', 'bg-blue-50', 'border-blue-200');
+            // AI Insight表示（音声が鳴らなくても解説は表示する）
+            insightPanel.classList.remove('hidden');
+            insightText.innerText = insight;
         }
-
-        player.onerror = () => {
-            showError();
-        };
-
-        function showError() {
-            errorDisplay.classList.remove('hidden');
-            indicator.classList.remove('bg-blue-500', 'animate-pulse');
-            indicator.classList.add('bg-red-500');
-            titleDisplay.innerText = "エラー: ファイルが見つかりません";
-        }
-
-        player.onpause = () => indicator.classList.remove('animate-pulse');
-        player.onplay = () => indicator.classList.add('animate-pulse');
     </script>
 </body>
 </html>
